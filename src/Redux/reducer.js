@@ -29,15 +29,17 @@ export default (state = initState, {type, payload})=>{
             }
         }
         case UPDATE_TODO:{
+            console.log(...state.todo, ...state.completed)
             return{
                 ...state,
                 todo: state.todo.map(item=> item.id === payload.id ? payload : item)
             }
         }
         case REVERT_COMPLETED:{
+            console.log(...state.todo, ...state.completed)
             return{
                 ...state,
-               todo: [...state.todo, payload].sort((a,b)=>b.date - a.date),
+               todo: state.todo.map(item=> item.id === payload.id ? payload : item).sort((a,b)=>b.date - a.date),
                completed : state.completed.filter(item=> item.id !== payload.id)
             }
         }

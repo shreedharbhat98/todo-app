@@ -23,7 +23,7 @@ class TodoList extends Component {
             isText: true
         })
     }
-    handleBlur = (text, id) => {
+    handleBlur = (text, id, date) => {
         this.setState({
             isText: false
         })
@@ -31,6 +31,7 @@ class TodoList extends Component {
             title: text,
             status: false,
             id: id,
+            date:date
         }
         this.props.updateTodo(object)
     }
@@ -69,7 +70,7 @@ class TodoList extends Component {
                             defaultValue={title}
                             fullWidth={true}
                             onChange={(e) => this.setState({ value: e.target.value })}
-                            onBlur={() => this.handleBlur(this.state.value, id)} />
+                            onBlur={() => this.handleBlur(this.state.value, id, date)} />
                     </>
 
                     }
