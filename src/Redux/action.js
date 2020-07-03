@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, UPDATE_TODO } from "./actionTypes"
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, UPDATE_TODO, REVERT_COMPLETED } from "./actionTypes";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -24,5 +24,10 @@ export const deleteTodo = payload =>({
 
 export const updateTodo = payload =>({
     type:UPDATE_TODO,
+    payload
+})
+
+export const revertCompleted = payload =>({
+    type:REVERT_COMPLETED,
     payload
 })

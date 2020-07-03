@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO } from "./actionTypes"
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, REVERT_COMPLETED } from "./actionTypes";
 import { loadData } from "./localStorage";
 
 export const initState = loadData("initState") || {
@@ -32,6 +32,13 @@ export default (state = initState, {type, payload})=>{
             return{
                 ...state,
                 todo: state.todo.map(item=> item.id === payload.id ? payload : item)
+            }
+        }
+        case REVERT_COMPLETED:{
+            return{
+                ...state,
+               todo: [...state.todo, payload].sort((a,b)=>b.date - a.date),
+               completed : state.completed.filter(item=> item.id !== payload.id)
             }
         }
         default :{
