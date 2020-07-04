@@ -69,6 +69,7 @@ class TodoList extends Component {
                             variant="outlined"
                             defaultValue={title}
                             fullWidth={true}
+                            autoFocus
                             onChange={(e) => this.setState({ value: e.target.value })}
                             onBlur={() => this.handleBlur(this.state.value, id, date)} />
                     </>

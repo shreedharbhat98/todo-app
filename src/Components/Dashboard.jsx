@@ -55,6 +55,7 @@ class Dashboard extends Component {
             label="Enter task"
             variant="outlined"
             size="small"
+            autoFocus
             style={{ width: "70%", margin: "20px 20px" }}
             value={this.state.value}
             onChange={this.handleChange} />
