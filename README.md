@@ -23,4 +23,5 @@ Install dependencies :
 * `react-redux`
 * `redux`
 * `uuid`
-Run command `npm start`
+Run command 
+* `npm start`
